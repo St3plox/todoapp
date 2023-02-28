@@ -25,4 +25,8 @@ public class ToDoRepository {
     public void deleteTask(int index){
         tasks.remove(index);
     }
+
+    public void updateTask(int index, Task task){
+        tasks.set(index, task);
+    }
 }

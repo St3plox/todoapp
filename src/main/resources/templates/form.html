@@ -10,9 +10,10 @@
 <div th:insert="navbar :: navbar"></div>
 
 <div class="mb-3">
-  <form method="post"  >
-    <input type="text" placeholder="Task name" >
-    <input type="date">
+  <form method="post"  th:object="${task}" th:action="@{/submitForm}">
+    <input type="text" placeholder="Task name" th:field="*{name}">
+    <input type="date" th:field="*{date}">
+    <input type="hidden" th:field="*{id}">
     <input type="submit" value="Submit">
   </form>
 </div>

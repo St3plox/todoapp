@@ -3,6 +3,7 @@ package me.tusur.todoapp.pojo;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Task {
