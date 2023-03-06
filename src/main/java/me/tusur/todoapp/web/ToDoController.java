@@ -1,7 +1,8 @@
 package me.tusur.todoapp.web;
 
-import me.tusur.todoapp.pojo.Task;
+import me.tusur.todoapp.entity.Task;
 import me.tusur.todoapp.service.ToDoService;
+import me.tusur.todoapp.service.ToDoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,14 +22,14 @@ public class ToDoController {
     }
 
     @GetMapping("/form")
-    public String getForm(Model model, @RequestParam(required = false) String id) {
+    public String getForm(Model model, @RequestParam(required = false) Long id) {
         model.addAttribute("task",toDoService.getTaskFromId(id));
         return "form";
     }
 
     @PostMapping("/submitForm")
     public String submitForm(Task task){
-        toDoService.handleSubmit(task);
+        toDoService.saveTask(task);
         return "redirect:/";
     }
 }
