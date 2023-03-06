@@ -2,8 +2,9 @@ package me.tusur.todoapp.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "task")
@@ -23,6 +24,7 @@ public class Task {
 
     @NonNull
     @Column(name="date")
-    private LocalDate birthDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date;
 
 }

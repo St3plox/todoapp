@@ -17,13 +17,14 @@ public class ToDoController {
     ToDoService toDoService;
 
     @GetMapping("/")
-    public String getIndex() {
+    public String getIndex(Model model) {
+        model.addAttribute("tasks",toDoService.getTasks());
         return "index";
     }
 
     @GetMapping("/form")
-    public String getForm(Model model, @RequestParam(required = false) Long id) {
-        model.addAttribute("task",toDoService.getTaskFromId(id));
+    public String getForm(Model model){
+        model.addAttribute("task", new Task());
         return "form";
     }
 

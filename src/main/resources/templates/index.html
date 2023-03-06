@@ -8,5 +8,11 @@
 </head>
 <body>
 <div th:insert="navbar :: navbar"></div>
+<table>
+    <tr th:each="task: ${tasks}">
+        <td th:text="${task.name}"> </td>
+        <td th:text="${task.date}"></td>
+    </tr>
+</table>
 </body>
 </html>
