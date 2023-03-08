@@ -1,4 +1,4 @@
-package me.tusur.todoapp.entity;
+package me.tusur.todoapp.service.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,6 +1,7 @@
 package me.tusur.todoapp.service;
 
-import me.tusur.todoapp.entity.Task;
+import lombok.AllArgsConstructor;
+import me.tusur.todoapp.service.entity.Task;
 import me.tusur.todoapp.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,9 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ToDoServiceImpl  implements ToDoService{
+@AllArgsConstructor
+public class TaskServiceImpl implements TaskService {
 
-    @Autowired
     ToDoRepository toDoRepository;
 
     @Override
@@ -33,16 +34,4 @@ public class ToDoServiceImpl  implements ToDoService{
         return (List<Task>) toDoRepository.findAll();
     }
 
-    public Task getTaskFromId(Long id){
-        if(id == null){
-            return new Task();
-        }
-        if(toDoRepository.existsById(id)) return toDoRepository.findById(id).get();
-        return new Task();
-    }
-
-
-//    public void handleSubmit(Task task) {
-//        toDoRepository.existsById(task.getId())) saveTask(task);
-//    }
 }

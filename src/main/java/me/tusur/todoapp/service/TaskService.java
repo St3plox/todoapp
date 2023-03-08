@@ -1,10 +1,10 @@
 package me.tusur.todoapp.service;
 
-import me.tusur.todoapp.entity.Task;
+import me.tusur.todoapp.service.entity.Task;
 
 import java.util.List;
 
-public interface ToDoService {
+public interface TaskService {
     Task getTask(Long id);
 
     Task saveTask(Task task);
@@ -13,5 +13,4 @@ public interface ToDoService {
 
     List<Task> getTasks();
 
-    public Task getTaskFromId(Long id);
 }
