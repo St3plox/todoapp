@@ -9,9 +9,6 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-body{
-  background: #f5f6fa;
-}
 
 .wrapper .sidebar{
   background: rgb(0, 3, 78);
@@ -109,7 +106,7 @@ body{
  .wrapper .section .container{
   margin: 10px;
   background: #fff;
-  padding: 20;
+  padding: 20px;
   line-height: 28px;
 }
 
