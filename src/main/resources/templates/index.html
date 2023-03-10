@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
-  <link rel="stylesheet" th:href="@{/css/task.css}"/>
-  <script th:src="@{/js/task.js}"></script>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}"/>
+    <link rel="stylesheet" th:href="@{/css/task.css}"/>
+    <script th:src="@{/js/task.js}"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tusur TO-Do</title>
 </head>
 <body>
-<div class="wrapper">
-  <div th:insert="sidebar :: sidebar"></div>
-  </div>
-<div class="tasks-block">
-  <div class="todo-item">
-    <input type="checkbox" onchange="toggleLabel(this)" />
-    <label>Do laundry</label>
-  </div>
+<div id="app">
+    <div class="wrapper">
+        <div th:insert="sidebar :: sidebar"></div>
+    </div>
+    <div class="tasks-block">
+        <div class="todo-item" v-for="task in tasks">
+            <input type="checkbox" v-model="task.checked" onchange="toggleLabel(this)"/>
+            <label>{{ task.name }}</label>
+        </div>
+    </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            tasks: []
+        },
+        mounted: function() {
+            // Fetch data from localhost
+            fetch('http://localhost:8080/task/all')
+                .then(response => response.json())
+                .then(data => {
+                    // Assign fetched data to tasks array
+                    this.tasks = data.map(task => {
+                        return {
+                            name: task.name,
+                            checked: false
+                        };
+                    });
+                })
+                .catch(error => console.log(error));
+        }
+    });
+</script>
 </body>
 </html>
