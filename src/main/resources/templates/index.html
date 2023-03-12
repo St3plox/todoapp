@@ -21,29 +21,9 @@
         </div>
     </div>
 </div>
+<button >
+</button>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            tasks: []
-        },
-        mounted: function() {
-            // Fetch data from localhost
-            fetch('http://localhost:8080/task/all')
-                .then(response => response.json())
-                .then(data => {
-                    // Assign fetched data to tasks array
-                    this.tasks = data.map(task => {
-                        return {
-                            name: task.name,
-                            checked: false
-                        };
-                    });
-                })
-                .catch(error => console.log(error));
-        }
-    });
-</script>
+<script src="/js/app.js"></script>
 </body>
 </html>

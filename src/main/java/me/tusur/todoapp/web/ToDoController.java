@@ -11,4 +11,9 @@ public class ToDoController {
     public String getIndex() {
         return "index";
     }
+
+    @GetMapping("/form")
+    public String getForm(){
+        return "form";
+    }
 }

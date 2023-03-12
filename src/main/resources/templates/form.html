@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Vue.js POST Request</title>
+</head>
+<body>
+<div id="apppost">
+    <h1>Vue.js POST Request</h1>
+    <form @submit.prevent="submitTask">
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="task.name"><br><br>
+        <label for="date">date:</label>
+        <input id="date" type="date" v-model="task.date"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<script src="/js/PostTask.js"></script>
+</body>
+</html>
