@@ -1,37 +1,45 @@
 package me.tusur.todoapp.service;
 
 import lombok.AllArgsConstructor;
-import me.tusur.todoapp.service.entity.Task;
-import me.tusur.todoapp.repository.ToDoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import me.tusur.todoapp.entity.Task;
+import me.tusur.todoapp.exception.EntityNotFoundException;
+import me.tusur.todoapp.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class TaskServiceImpl implements TaskService {
 
-    ToDoRepository toDoRepository;
+    TaskRepository taskRepository;
 
     @Override
     public Task getTask(Long id) {
-      return toDoRepository.findById(id).get();
+        Optional<Task> task = taskRepository.findById(id);
+      return unwrapTask(task, id);
     }
 
     @Override
     public Task saveTask(Task task) {
-        return toDoRepository.save(task);
+        return taskRepository.save(task);
     }
 
     @Override
     public void deleteTask(Long id) {
-        toDoRepository.deleteById(id);
+        Optional<Task> task = taskRepository.findById(id);
+        taskRepository.delete(unwrapTask(task, id));
     }
 
     @Override
     public List<Task> getTasks() {
-        return (List<Task>) toDoRepository.findAll();
+        return (List<Task>) taskRepository.findAll();
+    }
+
+    private static Task unwrapTask(Optional<Task> entity, Long id) {
+        if (entity.isPresent()) return entity.get();
+        else throw new EntityNotFoundException(id, Task.class);
     }
 
 }

@@ -1,6 +1,6 @@
 package me.tusur.todoapp.service;
 
-import me.tusur.todoapp.service.entity.Task;
+import me.tusur.todoapp.entity.Task;
 
 import java.util.List;
 

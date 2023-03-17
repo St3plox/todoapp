@@ -2,7 +2,7 @@ package me.tusur.todoapp.web;
 
 import lombok.AllArgsConstructor;
 import me.tusur.todoapp.service.TaskService;
-import me.tusur.todoapp.service.entity.Task;
+import me.tusur.todoapp.entity.Task;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
