@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import me.tusur.todoapp.entity.User;
 import me.tusur.todoapp.exception.EntityNotFoundException;
 import me.tusur.todoapp.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService{
 

@@ -3,14 +3,14 @@ package me.tusur.todoapp.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "users")
 @RequiredArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -20,8 +20,8 @@ public class User {
 
     @NonNull
     @NotBlank
-    @Column(name = "user_name")
-    private String name;
+    @Column(name = "username")
+    private String username;
 
     @NonNull
     @NotBlank
