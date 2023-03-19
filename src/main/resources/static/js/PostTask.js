@@ -21,7 +21,7 @@ const app = new Vue({
                 if (response.ok) {
                     window.location.href = 'http://localhost:8080';
                 } else {
-                    console.error('Error while submitting the task object');
+                    console.error("ERROR");
                 }
             } catch (error) {
                 console.error(error);

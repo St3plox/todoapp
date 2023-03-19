@@ -1,6 +1,7 @@
 package me.tusur.todoapp.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -18,11 +19,11 @@ public class Task {
     private Long id;
 
     @NonNull
+    @NotBlank
     @Column(name = "name")
     private String name;
 
-    @NonNull
-    @Column(name="date")
+    @Column(name = "date")
     private LocalDate date;
 
 }

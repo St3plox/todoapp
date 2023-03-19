@@ -1,5 +1,6 @@
 package me.tusur.todoapp.web;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import me.tusur.todoapp.service.TaskService;
 import me.tusur.todoapp.entity.Task;
@@ -22,7 +23,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+    public ResponseEntity<Task> createTask(@Valid @RequestBody Task task) {
         return new ResponseEntity<>(taskService.saveTask(task), HttpStatus.CREATED);
     }
 
