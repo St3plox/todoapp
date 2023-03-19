@@ -9,7 +9,7 @@ let app = new Vue({
     },
     mounted: function () {
         // Fetch data from localhost
-        fetch('http://localhost:8080/task/all')
+        fetch('/task/all')
             .then(response => response.json())
             .then(data => {
                 // Assign fetched data to tasks array

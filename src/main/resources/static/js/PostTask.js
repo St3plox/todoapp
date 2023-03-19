@@ -10,7 +10,7 @@ const app = new Vue({
     methods: {
         async submitTask() {
             try {
-                const response = await fetch('http://localhost:8080/task', {
+                const response = await fetch('/task', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ const app = new Vue({
                 });
 
                 if (response.ok) {
-                    window.location.href = 'http://localhost:8080';
+                    window.location.href = '/';
                 } else {
                     console.error("ERROR");
                 }
